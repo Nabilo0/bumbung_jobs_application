@@ -1,0 +1,16 @@
+<h3>New Data</h3>
+
+
+<%= form_tag '/static/send_data', method: :post do %>
+ full_name: <%= text_field_tag :name %></br>
+ email:     <%= text_field_tag :email %></br>
+ message:   <%= text_field_tag :message %></br>
+ website: 	<%= text_field_tag :website %></br>
+ github: 		<%= text_field_tag :gitub %></br>
+ twitter: 	<%= text_field_tag :twitter %></br>
+ linkedin: 	<%= text_field_tag :linkedin %></br>
+<%= submit_tag %>
+<% end %>
+
+
+ <%= link_to "Back", root_path %>
