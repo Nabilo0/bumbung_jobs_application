@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 root "static#index"
     get "/newdata" => "static#new_data"
-
+    get "/lovecalculator" => "static#love_calculator"
     post 'static/send_data'
 
   # You can have the root of your site routed with "root"

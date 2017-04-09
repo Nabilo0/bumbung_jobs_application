@@ -1,10 +1,36 @@
 class StaticController < ApplicationController
 	def index
+
+  # response = Unirest.get "https://yoda.p.mashape.com/yoda?sentence=You+will+learn+how+to+speak+like+me+someday.++Oh+wait.",
+  # headers:{
+  #   "X-Mashape-Key" => "vxGXmAkKjomshOtw6d3nysdrKzK1p1ntw02jsna6xI8aEt5SfE",
+  #   "Accept" => "text/plain"
+  # }
+  # byebug
+  # @test = response.body
 	end
 	def new_data
 	end
 
- 	def send_data
+def love_calculator
+  #{params[:query]}
+response = Unirest.get "https://love-calculator.p.mashape.com/getPercentage?fname=#{params[:fname]}&sname=#{params[:sname]}",
+  headers:{
+    "X-Mashape-Key" => "vxGXmAkKjomshOtw6d3nysdrKzK1p1ntw02jsna6xI8aEt5SfE",
+    "Accept" => "application/json"
+  }
+   # byebug
+  @love = response.body["fname"]
+  @love2 = response.body["sname"]
+  @percentage = response.body["percentage"]
+  @result = response.body["result"]
+
+
+
+end
+ 	
+
+  def send_data
 
  	email_test = valid_email(params[:email])
  	# byebug
@@ -33,7 +59,7 @@ class StaticController < ApplicationController
 def valid_email(email)
   (email =~ /^(([A-Za-z0-9]*\.+*_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\+)|([A-Za-z0-9]+\+))*[A-Z‌​a-z0-9]+@{1}((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,4}$/i)
 end
- 
+  
 end
 # image-gallery-2017.herokuapp.com
 # or response.body["job"]["email"] or response.body["job"]["message"]

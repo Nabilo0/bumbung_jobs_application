@@ -1,0 +1,32 @@
+
+<div class="control-group">
+  <div class="controls">
+    <button type="button" class="btn btn-primary" id="return_calculator_button">Calculate the Return</button>
+  </div>
+</div>
+-----------
+<form>
+  Lower bound id: <input type="text" id="lower_bound_id"><br />
+  Upper bound id: <input type="text" id="upper_bound_id"><br />
+  <input type="submit" value="Submit" id="return_calculator_button">
+</form>
+<script >
+	
+	$.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://love-calculator.p.mashape.com/getPercentage?fname=John&sname=Alice"
+     });
+</script>
+
+
+<%= form_tag '/lovecalculator', method: :get do %>
+ Sure Name: <%= text_field_tag :sname %></br>
+ Famle Name:     <%= text_field_tag :fname %></br>
+
+<%= submit_tag %>
+<% end %>
+<h3><%= @love%>+<%=@love2%></h3>
+<h2><%= @percentage%></h2>
+<h1><%= @result%></h1>
+ <%= link_to "Back", root_path %>
